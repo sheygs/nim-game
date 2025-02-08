@@ -1,4 +1,4 @@
-### Nim Number Game
+### Nim Game
 
 We will begin our exercises with the famous Nim game. We consider here at first only the 1-heap
 Nim game. These are the rules of the game:
@@ -9,11 +9,7 @@ Nim game. These are the rules of the game:
 4. Then, the first player plays again, and so on. The game ends when a player leaves no sticks in the heap.
 5. The player who takes the last stick or sticks, wins. Or, said otherwise, the player who first cannot make a move, loses.
 
-In this exercise sheet, you will develop a program that will permit playing the game. Centrally, this
-should permit a human to play against a computer, but, ultimately should support playing any type
-of player against any type of player (i.e. `human-vs-human`, `human-vs-computer`, `computer-vs-computer`),
-with any of them being able to play first.The following diagram explains the structure of the software
-that we are aiming for:
+You will develop a program that will permit playing the game. Centrally, this should permit a human to play against a computer, but, ultimately should support playing any type of player against any type of player (i.e. `human-vs-human`, `human-vs-computer`, `computer-vs-computer`), with any of them being able to play first.The following diagram explains the structure of the software that we are aiming for:
 
 ![Nim Game Architecture](./game_architecture.png)
 
@@ -51,9 +47,9 @@ As computer player, the simplest player should be one that just returns any fixe
 
 In the case of the human player, the interface should look precisely the same as for the computer player, a function that takes the current state as argument and returns the move. Inside the function, however, the program queries the human (via some input/output, e.g. a print operation) what they want to do in the given situation. In the following, we will implement these different components, beginning with the computer player.
 
-#### Task
+#### Challenge One
 
-Write a Python function, implementing a computer player for the 1-heap NIM game.
+Write a Python function, implementing a computer player for the 1-heap Nim game.
 
 **Rule**: Consider a heap of n pieces. Players take alternating turns to remove 1-3 pieces. Whoever manages to take the last piece, wins.
 
@@ -73,3 +69,11 @@ You can assume that there is at least one stick, i.e. n > 0. This will be later 
    - It asks the human to select a heap size;
    - It asks the human who should play and lets them select two players;
    - Permits the two players (computer or human) to play against each other, printing the progress of the game.
+
+#### Challenge One
+
+Create a variation of the optimal nim player to address variations of the game rules:
+
+- _nim_2_ or _nim_4_: a diﬀerent number of sticks to be taken (_up to 2, or up to 4_)
+
+- _nim_last_loses_: a diﬀerent winning condition (whoever takes the last stick, loses)!
