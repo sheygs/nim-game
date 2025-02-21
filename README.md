@@ -78,6 +78,6 @@ Create a variation of the optimal nim player to address variations of the game r
 
 - _nim_last_loses_: a diﬀerent winning condition (whoever takes the last stick, loses)!
 
-### Task Three
+#### Task Three
 
 Implement the Nim game using the minimax algorithm.
