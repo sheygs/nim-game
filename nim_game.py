@@ -64,7 +64,33 @@ def get_player_type(player_num:int) -> str:
       return get_player_type(player_num)
 
 
-# print(f'human player removed: {nim_human(11)}')
-# print(f'computer player removed: {nim(11)}')
-# print("smart player removed: ", nim_best(11))
-print(f'player type: {get_player_type(1)}')
+"""Game Manager
+   :return: tuple - player types and no of sticks in the heap
+"""
+def setup_game():
+   print('Welcome to the Nim Game 🥢')
+   player_one = get_player_type(1)
+   player_two = get_player_type(2)
+
+   while True:
+      try:
+         sticks = int(input('Enter the number of sticks between 10-100 inclusive to add to the heap: \n'))
+         if sticks < 10 or sticks > 100:
+            raise ValueError('Number of sticks is not within the range. Please try again')
+
+         return sticks, player_one, player_two
+      except ValueError as err:
+         print(f'error: {err}')
+
+
+"""Game Controller
+"""
+def play_game():
+   pass
+
+def main():
+    state = setup_game()
+    print(f'Game state: {state}')
+
+if __name__ == "__main__":
+   main()
