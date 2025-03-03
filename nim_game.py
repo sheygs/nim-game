@@ -1,5 +1,8 @@
 import random
 
+def show_message(message='Play the Nim Game 🥢'):
+   print(message)
+
 """Computer player
    :param sticks: int - number of sticks in the heap
    :return: int - number of sticks removed by the computer player
@@ -27,7 +30,7 @@ def nim_human(sticks: int) -> int:
 
          return move
       except ValueError as error:
-         print(f'error: {error}')
+         show_message(f'error: {error}')
 
 
 """Super/Smart computer player
@@ -47,12 +50,12 @@ def nim_best(sticks: int) -> int:
 """
 def get_player_type(player_num:int) -> str:
    try:
-      choice = int(input(f'Select a game type for player {player_num}:\n1. Computer\n2. Human\n3. Smart Computer.\nType a number between 1-3 inclusive\n'))
+      choice = int(input(f'Select a game type for player {player_num}:\n1. Human\n2. Computer\n3. Smart Computer.\nType a number between 1-3 inclusive\n'))
       match choice:
          case 1:
-            return "computer"
-         case 2:
             return "human"
+         case 2:
+            return "computer"
          case 3:
             return "smart"
          case _:
@@ -60,7 +63,7 @@ def get_player_type(player_num:int) -> str:
    # catch non-integer inputs
    except ValueError as error:
       # recursively ask the player for choice until valid
-      print(f'error: {error}')
+      show_message(f'error: {error}')
       return get_player_type(player_num)
 
 
@@ -68,7 +71,7 @@ def get_player_type(player_num:int) -> str:
    :return: tuple - player types and no of sticks in the heap
 """
 def setup_game():
-   print('Welcome to the Nim Game 🥢')
+   show_message()
    player_one = get_player_type(1)
    player_two = get_player_type(2)
 
@@ -80,17 +83,61 @@ def setup_game():
 
          return sticks, player_one, player_two
       except ValueError as err:
-         print(f'error: {err}')
+         show_message(f'error: {err}')
 
 
 """Game Controller
 """
-def play_game():
-   pass
+def play_game(sticks: int, player_one: str, player_two: str):
+   show_message(f'Total sticks in the heap: {sticks}')
+
+   move_mapper = {
+      "human": nim_human,
+      "computer": nim,
+      "smart": nim_best
+   }
+
+   player_choices = {
+      "human": "Human",
+      "computer": "Computer",
+      "smart": "Smart"
+   }
+
+   players = [
+         move_mapper[player_one],
+         move_mapper[player_two]
+   ]
+
+   player_labels = [
+        player_choices[player_one],
+        player_choices[player_two]
+   ]
+
+   # current player index
+   current_player = 0
+
+   while sticks > 0:
+      # current player make moves
+      move = players[current_player](sticks)
+      show_message(f'{player_labels[current_player]} player {current_player + 1} removed {move} sticks')
+
+      # keep track of sticks
+      sticks-=move
+      show_message(f'Total sticks left: {sticks}')
+
+      # no more sticks? current player wins
+      if sticks == 0:
+         show_message(f'Game over! {player_labels[current_player]} player {current_player + 1} wins 🚀🎉')
+         break
+
+      # switch player
+      current_player = 1 if current_player == 0 else 0
+      # current_player = (current_player + 1) % 2
 
 def main():
-    state = setup_game()
-    print(f'Game state: {state}')
+    sticks, player_one, player_two = setup_game()
+    show_message(f'Game state: {(sticks, player_one, player_two)}')
+    play_game(sticks, player_one, player_two)
 
 if __name__ == "__main__":
    main()
