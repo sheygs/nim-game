@@ -68,6 +68,7 @@ def play_game(*args) -> None:
 
       # switch player
       current_player = 1 if current_player == 0 else 0
+      # current_player = (current_player + 1) % 2
 
 
 def main():
