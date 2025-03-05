@@ -70,14 +70,11 @@ You can assume that there is at least one stick, i.e. n > 0. This will be later 
    - It asks the human who should play and lets them select two players;
    - Permits the two players (computer or human) to play against each other, printing the progress of the game.
 
-#### Task Two
+#### To Do
 
 Create a variation of the optimal nim player to address variations of the game rules:
 
-- _nim_2_ or _nim_4_: a diﬀerent number of sticks to be taken (_up to 2, or up to 4_)
+- [x] _nim_2_ or _nim_4_: a diﬀerent number of sticks to be taken (_up to 2, or up to 4_)
+- [ ] _nim_last_loses_: a diﬀerent winning condition (whoever takes the last stick, loses)!
 
-- _nim_last_loses_: a diﬀerent winning condition (whoever takes the last stick, loses)!
-
-#### Task Three
-
-Implement the Nim game using the minimax algorithm.
+- [ ] Implement the Nim game using the minimax algorithm.
