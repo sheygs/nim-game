@@ -81,7 +81,7 @@ def main():
 
       response = response.strip().lower()
 
-      if response != "Y" or response != "y" or response != "yes":
+      if response not in ["y", "yes"]:
          show_message('See you next time. 👋')
          break
 
