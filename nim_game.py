@@ -1,4 +1,4 @@
-from utils import show_message, get_player_type, game_rules_variation, nim, nim_human, nim_best
+from utils import show_message, get_player_type, game_rules_variant, nim, nim_human, nim_best
 
 """Game Manager
    :return: tuple - player types, total no of sticks and sticks limit
@@ -7,7 +7,7 @@ def setup_game():
    show_message()
    player_one = get_player_type(1)
    player_two = get_player_type(2)
-   limit = game_rules_variation()
+   limit = game_rules_variant()
 
    while True:
       try:
@@ -59,7 +59,7 @@ def play_game(*args) -> None:
       sticks-=move
 
       show_message(f'{player_labels[current_player]} player {current_player + 1} removed {move} sticks')
-      show_message(f'Total sticks left: {sticks}')
+      show_message(f'total sticks left: {sticks}')
 
       # no more sticks? current player wins
       if sticks == 0:
@@ -74,7 +74,7 @@ def play_game(*args) -> None:
 def main():
     while True:
       sticks, player_one, player_two, limit = setup_game()
-      show_message(f'Game state: {(sticks, player_one, player_two, limit)}')
+      show_message(f'game state: {(sticks, player_one, player_two, limit)}')
       play_game(sticks, player_one, player_two, limit)
 
       response = input('Do you want to play again? type (yes or no):\n')
