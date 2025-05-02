@@ -1,7 +1,6 @@
 ### Nim Game
 
-We will begin our exercises with the famous Nim game. We consider here at first only the 1-heap
-Nim game. These are the rules of the game:
+We will begin with the famous Nim game by considering only 1-heap. These are the rules of the game:
 
 1. There are two players who alternate in making a move. Given is a single heap of sticks. The heap contains an integer number n ∈N of sticks.
 2. When it is the turn of a player, that player takes a number of sticks from the heap, either 1, 2, or 3, but never more than the remaining number of sticks in the heap.
@@ -9,7 +8,7 @@ Nim game. These are the rules of the game:
 4. Then, the first player plays again, and so on. The game ends when a player leaves no sticks in the heap.
 5. The player who takes the last stick or sticks, wins. Or, said otherwise, the player who first cannot make a move, loses.
 
-You will develop a program that will permit playing the game. Centrally, this should permit a human to play against a computer, but, ultimately should support playing any type of player against any type of player (i.e. `human-vs-human`, `human-vs-computer`, `computer-vs-computer`), with any of them being able to play first.The following diagram explains the structure of the software that we are aiming for:
+Develop a program that will permit playing the game. Centrally, this should permit a human to play against a computer, but, ultimately should support playing any type of player against any type of player (i.e. `human-vs-human`, `human-vs-computer`, `computer-vs-computer`), with any of them being able to play first.The following diagram explains the structure of the software that we are aiming for:
 
 ![Nim Game Architecture](./game_architecture.png)
 
@@ -51,15 +50,15 @@ In the case of the human player, the interface should look precisely the same as
 
 Write a Python function, implementing a computer player for the 1-heap Nim game.
 
-**Rule**: Consider a heap of n pieces. Players take alternating turns to remove 1-3 pieces. Whoever manages to take the last piece, wins.
+**Rule**: Consider a heap of `n` pieces. Players take alternating turns to remove `1-3` pieces. Whoever manages to take the last piece, wins.
 
 In detail: write a function `nim(n)` that produces a legal move, i.e. it gets `n` as argument, the `number of sticks` still present on theheap, and returns `how many sticks are removed` in the current step (which needs to be a legal number of sticks).
 
-You can assume that there is at least one stick, i.e. n > 0. This will be later ensured by the game controller.
+You can assume that there is at least one stick, i.e. `n > 0`. This will be later ensured by the game controller.
 
 **Hint**: You can use a random legal move. In this case, have a look at Python’s random module. Once you have completed this, you can extend the problem as follows:
 
-1. improve `nim(n)` to `nim_best(n)` that plays optimally. You will have to research (or discuss in the practical) what the optimal move is.
+1. improve `nim(n)` to `nim_best(n)` that plays optimally. You will have to research on what the optimal move is.
 
 2. Write a function `nim_human(n)` which asks a human (on command line or input widget) to submit a legal move and returns it.
 
