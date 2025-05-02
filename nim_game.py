@@ -4,6 +4,7 @@ from utils import show_message, get_player_type, game_rules_variant, nim, nim_hu
    :return: tuple - player types, total no of sticks and sticks limit
 """
 def setup_game():
+
    show_message()
    player_one = get_player_type(1)
    player_two = get_player_type(2)
@@ -12,6 +13,7 @@ def setup_game():
    while True:
       try:
          sticks = int(input('Enter the total number of sticks between 10 and 100 inclusive: \n'))
+
          if sticks < 10 or sticks > 100:
             raise ValueError('number of sticks is not within the range. Please try again')
 
@@ -59,6 +61,7 @@ def play_game(*args) -> None:
       sticks-=move
 
       show_message(f'{player_labels[current_player]} player {current_player + 1} removed {move} sticks')
+
       show_message(f'total sticks left: {sticks}')
 
       # no more sticks? current player wins
@@ -73,8 +76,11 @@ def play_game(*args) -> None:
 
 def main():
     while True:
+
       sticks, player_one, player_two, limit = setup_game()
+
       show_message(f'game state: {(sticks, player_one, player_two, limit)}')
+
       play_game(sticks, player_one, player_two, limit)
 
       response = input('Do you want to play again? type (yes or no):\n')
