@@ -46,7 +46,7 @@ As computer player, the simplest player should be one that just returns any fixe
 
 In the case of the human player, the interface should look precisely the same as for the computer player, a function that takes the current state as argument and returns the move. Inside the function, however, the program queries the human (via some input/output, e.g. a print operation) what they want to do in the given situation. In the following, we will implement these different components, beginning with the computer player.
 
-#### Task One
+#### Tasks
 
 Write a Python function, implementing a computer player for the 1-heap Nim game.
 
@@ -75,5 +75,4 @@ Create a variation of the optimal nim player to address variations of the game r
 
 - [x] _nim_2_ or _nim_4_: a diﬀerent number of sticks to be taken (_up to 2, or up to 4_)
 - [ ] _nim_last_loses_: a diﬀerent winning condition (whoever takes the last stick, loses)!
-
 - [ ] Implement the Nim game using the minimax algorithm.
